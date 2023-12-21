@@ -1,6 +1,7 @@
 require "test_helper"
 
 class TripsControllerTest < ActionDispatch::IntegrationTest
+
   test "index" do
     get "/trips.json"
     assert_response 200
@@ -32,4 +33,12 @@ class TripsControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal "Updated title", data["title"]
   end
+
+  test "destroy" do
+    assert_difference "Trip.count", -1 do
+      delete "/trips/#{Trip.first.id}.json"
+      assert_response 200
+    end
+  end
+
 end
