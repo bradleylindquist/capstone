@@ -19,4 +19,15 @@ class TripsController < ApplicationController
     render :show
   end
 
+  def update
+    @trip = Trip.find_by(id: params[:id])
+    @trip.update(
+      title: params[:title] || @trip.title,
+      image_url: params[:image_url] || @trip.image_url,
+      user_id: params[:user_id] || @trip.user_id,
+    )
+    render :show
+  end
+
+
 end
