@@ -11,6 +11,7 @@ class TripsController < ApplicationController
       title: params[:title],
       image_url: params[:image_url],
       user_id: params[:user_id],
+      place: params[:place]
     )
     render :show
   end
