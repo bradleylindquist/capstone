@@ -6,3 +6,4 @@ json.description place.description
 json.image_url place.image_url
 json.address place.address
 json.created_at place.created_at
+
